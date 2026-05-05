@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import isNullOrEmpty from "@/isNullOrEmpty";
+import isNullOrEmpty from "~~/isNullOrEmpty";
 
 export default {
     name: "sim-color-input",

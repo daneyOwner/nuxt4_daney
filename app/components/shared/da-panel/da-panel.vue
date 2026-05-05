@@ -51,7 +51,7 @@
 </style>
 
 <style lang="scss" scoped>
-@import "~~/assets/scss/variables";
+@import "~/assets/scss/variables";
 
 .da-panel {
     width: 100%;
@@ -320,13 +320,10 @@ form.da-panel-inside {
 </template>
 
 <script>
-import isNullOrEmpty from "~/isNullOrEmpty";
-import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
-import Spinner from "~/components/shared/core/spinner.vue";
+import isNullOrEmpty from "~~/isNullOrEmpty";
 
 export default {
     name: "da-panel",
-    components: {Spinner, FontAwesomeIcon},
     props: {
         title: {
             validator: function (value) {

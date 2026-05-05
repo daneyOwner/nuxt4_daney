@@ -45,6 +45,13 @@
         text-align: left;
         text-overflow: ellipsis;
         will-change: transform;
+
+        & > div {
+            -webkit-user-select: all;
+            -moz-user-select: all;
+            user-select: all;
+            pointer-events: all;
+        }
     }
 
     &__labelTextFocus {
@@ -72,7 +79,16 @@
 
 <template>
     <div class="simTextArea" :class="[classes]">
-        <label class="simTextArea__labelText" :class="[labelClasses]">{{ title }}</label>
+        <label class="simTextArea__labelText" :class="[labelClasses]">
+            {{ title }}
+            <client-only>
+                <u-tooltip arrow :popper="{ placement: 'top' }" class="inline-block!" :text="helpText">
+                    <div>
+                        <font-awesome-icon icon="fa-solid fa-circle-question" fixed-width />
+                    </div>
+                </u-tooltip>
+            </client-only>
+        </label>
         <textarea v-model="val" @focus="onFocus" @blur="onBlur" style="height: 62px;" :disabled="disabled"
                   class="form-control simTextArea__textarea" :class="[textareaClasses]"
                   :maxlength="max !== 0 ? max : ''" ref="textarea" @input="expand"></textarea>
@@ -114,6 +130,7 @@ let props = defineProps({
         type: Boolean,
         default: false,
     },
+    helpText: null,
 });
 
 const emit = defineEmits(['update:modelValue']);

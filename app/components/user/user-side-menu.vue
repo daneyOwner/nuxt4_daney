@@ -1,5 +1,5 @@
 ﻿<style lang="scss" scoped>
-@import "~~/assets/scss/variables";
+@import "~/assets/scss/variables";
 
 .navMenu {
     background-color: hsl(223, calc(var(--saturation-factor, 1) * 6.9%), 19.8%);

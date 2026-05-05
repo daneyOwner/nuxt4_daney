@@ -4,7 +4,7 @@
 
 <script lang="ts">
 const dayjs = useDayjs();
-import isNullOrEmpty from "~/isNullOrEmpty";
+import isNullOrEmpty from "~~/isNullOrEmpty";
 
 export default defineComponent({
 	name: "da-table-int-date-value-formatter",

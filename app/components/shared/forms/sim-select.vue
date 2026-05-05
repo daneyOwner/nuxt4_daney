@@ -25,7 +25,7 @@
         line-height: 0;
         height: 14px;
         transform: translateY(-68%) scale(0.75);
-        
+
         & > div {
             -webkit-user-select: all;
             -moz-user-select: all;
@@ -45,31 +45,31 @@
         <label class="simSelect__labelText" v-if="title != null">
             {{ title }}
             <client-only>
-                <u-tooltip :popper="{ placement: 'top' }" class="!inline-block" :text="helpText" :open="true">
+                <u-tooltip arrow :popper="{ placement: 'top' }" class="inline-block!" :text="helpText">
                     <div>
                         <font-awesome-icon icon="fa-solid fa-circle-question" fixed-width />
                     </div>
                 </u-tooltip>
             </client-only>
         </label>
-        <select2 ref="select2" :id="id" :name="name" :options="options" :disabled="disabled" :required="required"
-                 :settings="settings"
-                 v-model="val"
-                 @change="(change) => $emit('change', change)" @select="(select) => $emit('select', select)"
-                 @closing="(closing) => $emit('closing', closing)" @close="(close) => $emit('close', close)"
-                 @opening="(opening) => $emit('opening', opening)" @open="(open) => $emit('open', open)"
-                 @clearing="(clearing) => $emit('clearing', clearing)"
-                 @clear="(clear) => $emit('clear', clear)">
-        </select2>
+        <u-select-menu value-key="id" label-key="text" ref="select2" :id="id" :items="options" 
+                       :disabled="disabled" :required="required" v-model="val" :multiple="multiple"
+                       :search-input="{
+                          placeholder: 'Filter...',
+                          icon: 'i-lucide-search'
+                       }"
+                       
+                       @change="(change) => $emit('change', change)"
+                       @blur="(closing) => $emit('closing', closing)"
+                       @focus="(opening) => $emit('opening', opening)"
+                       @clear="() => $emit('clear')">
+        </u-select-menu>
     </div>
 </template>
 
-<script lang="ts">
-import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
-
+<script>
 export default {
     name: "sim-select",
-    components: {FontAwesomeIcon},
     props: {
         id: {
             type: String,
@@ -80,7 +80,6 @@ export default {
             default: ''
         },
         options: {
-            type: Array,
             default: () => []
         },
         disabled: {
@@ -91,10 +90,9 @@ export default {
             type: Boolean,
             default: false
         },
-        settings: {
-            type: Object,
-            default: () => {
-            }
+        multiple: {
+            type: Boolean,
+            default: false
         },
         title: null,
         helpText: null,
@@ -104,6 +102,7 @@ export default {
     data() {
         return {
             val: null,
+            items: Array,
         }
     },
     watch: {
@@ -123,10 +122,5 @@ export default {
             immediate: true,
         },
     },
-    mounted() {
-        setTimeout(() => {
-            this.$refs.select2.$el.querySelectorAll(".select2-selection__rendered")[0].removeAttribute("title");
-        }, 2000);
-    }
 }
 </script>

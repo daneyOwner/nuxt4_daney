@@ -12,12 +12,10 @@
 </template>
 
 <script>
-import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
 import {v4 as newGuid} from "uuid";
 
 export default {
     name: "da-panel-tab",
-    components: {FontAwesomeIcon},
     abstract: true,
     inheritAttrs: false,
     props: {

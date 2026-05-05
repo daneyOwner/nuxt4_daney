@@ -14,5 +14,16 @@
     {
       "path": "./.nuxt/tsconfig.node.json"
     }
+  ],
+  "compilerOptions": {
+    "strict": false
+  },
+  "exclude": [
+    "../node_modules",
+    "../node_modules/nuxt/node_modules",
+    "../dist",
+    "../.output",
+    "../.git",
+    "../services"
   ]
 }

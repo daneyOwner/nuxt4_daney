@@ -9,7 +9,7 @@ article {
 <template>
     <div class="page">
         <div class="min-h-dvh">
-<!--            <main-navbar/>-->
+            <main-navbar/>
             <article class="container mx-auto">
                 <div class="p-2 md:p-4 lg:p-6">
                     <slot/>

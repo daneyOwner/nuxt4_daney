@@ -397,8 +397,7 @@
 import DaTableColumnHeader from "./da-table-column-header.vue";
 import DaTableDetailRow from "./da-table-detail-row.vue";
 import DaTableRow from "./da-table-row.vue";
-import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
-import isNullOrEmpty from "~/isNullOrEmpty";
+import isNullOrEmpty from "~~/isNullOrEmpty";
 import {v4 as newGuid} from "uuid";
 import { validate as uuidValidate } from 'uuid';
 
@@ -409,7 +408,7 @@ const deleteSelected = function deleteSelected() {
 
 export default defineComponent({
 	name: "da-table",
-	components: {FontAwesomeIcon, DaTableDetailRow, DaTableColumnHeader, DaTableRow},
+	components: { DaTableDetailRow, DaTableColumnHeader, DaTableRow},
 	props: {
 		id: {
 			default: null,
@@ -1226,7 +1225,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-@import "~~/assets/scss/variables";
+@import "~/assets/scss/variables";
 
 .select-column {
     width: 10px;

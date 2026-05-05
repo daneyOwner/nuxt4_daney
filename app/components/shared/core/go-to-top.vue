@@ -5,8 +5,6 @@
 </template>
 
 <script setup>
-import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
-
 import {ref} from 'vue';
 
 const shown = ref(false);

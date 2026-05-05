@@ -53,6 +53,13 @@
         text-align: left;
         text-overflow: ellipsis;
         will-change: transform;
+
+        & > div {
+            -webkit-user-select: all;
+            -moz-user-select: all;
+            user-select: all;
+            pointer-events: all;
+        }
     }
 
     &__labelTextFocus {
@@ -81,7 +88,16 @@
 
 <template>
     <div class="simInput" :class="[classes]">
-        <label class="simInput__labelText" :class="[labelClasses]">{{ title }}</label>
+        <label class="simInput__labelText" :class="[labelClasses]">
+            {{ title }}
+            <client-only>
+                <u-tooltip arrow :popper="{ placement: 'top' }" class="inline-block!" :text="helpText">
+                    <div>
+                        <font-awesome-icon icon="fa-solid fa-circle-question" fixed-width />
+                    </div>
+                </u-tooltip>
+            </client-only>
+        </label>
         <input :type="type" id="input-" v-model="val" @focus="onFocus" @blur="onBlur"
                @keydown.enter.prevent="$emit('keydown')" :disabled="disabled"
                class="form-control w-100 simInput__input"
@@ -94,7 +110,7 @@
 </template>
 
 <script>
-import isNullOrEmpty from "@/isNullOrEmpty";
+import isNullOrEmpty from "~~/isNullOrEmpty";
 
 export default {
     name: "sim-input",
@@ -126,6 +142,7 @@ export default {
         black: {
             default: false,
         },
+        helpText: null,
     },
     watch: {
         val: {
