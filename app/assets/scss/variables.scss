@@ -1,0 +1,177 @@
+$black:    	#000 !default;
+$white: 	#fff !default;
+$yellow:  	#ffc107 !default;
+$gray-600: #6c757d !default;
+$gray-100: #f8f9fa !default;
+$gray-300: #dee2e6 !default;
+$light:         $gray-100 !default;
+
+$brand-color: #ED6A1C;
+$danger: #F24C54;
+$success: #7BD266;
+$primary: #5490F8;
+$info: #D5E4FD;
+$secondary: #D4D4D4;
+$warning: $yellow;
+
+$light-grey-color: #D4D4D4;
+$lighter-grey-color: #EAEAEA;
+$almost-white-color: #F5F5F5;
+$darker-color: #343434;
+$dark-color: #434343;
+$grey-color: #707070;
+$dark: $darker-color;
+
+$menu-hover-link: rgba(#5490F8, 0.24);
+$menu-active-link: $brand-color;
+$menu-active-bg: #636569;
+
+$body-color: $dark-color;
+$text-muted:                  $gray-600 !default;
+$btn-border-radius: 5px;
+
+$border-color: rgb(27, 27, 27);
+$header-color: #202225;
+$filler-body-color: #2f3136;
+$almost-white-color: #d7d7d7;
+$menu-bg: #44464b;
+$menu-active-link: white;
+$menu-hover-bg: #636569;
+$menu-hover-link: rgba(#5490F8, 0.24);
+$brand-color: #ED6A1C;
+$da-table-font-size: 13px;
+$da-table-button-secondary-color: #788994;
+$da-table-cell-padding-left: 18px;
+$grey-color: #707070;
+$dark-color: #434343;
+$light-grey-color: #D4D4D4;
+
+// Components
+//
+// Define common padding and border radius sizes and more.
+
+// scss-docs-start border-variables
+$border-width:                1px !default;
+
+$border-widths: (
+	1: 1px,
+	2: 2px,
+	3: 3px,
+	4: 4px,
+	5: 5px
+) !default;
+
+$border-color:                $gray-300 !default;
+// scss-docs-end border-variables
+
+//Tables
+
+// Tables
+//
+// Customizes the `.table` component with basic values, each used across all table variations.
+
+// scss-docs-start table-variables
+$table-cell-padding-y:        .5rem !default;
+$table-cell-padding-x:        .5rem !default;
+$table-cell-padding-y-sm:     .25rem !default;
+$table-cell-padding-x-sm:     .25rem !default;
+
+$table-cell-vertical-align:   top !default;
+
+$table-color:                 $body-color !default;
+$table-bg:                    transparent !default;
+$table-accent-bg:             transparent !default;
+
+$table-th-font-weight:        null !default;
+
+$table-striped-color:         $table-color !default;
+$table-striped-bg-factor:     .05 !default;
+$table-striped-bg:            rgba($black, $table-striped-bg-factor) !default;
+
+$table-active-color:          $table-color !default;
+$table-active-bg-factor:      .1 !default;
+$table-active-bg:             rgba($black, $table-active-bg-factor) !default;
+
+$table-hover-color:           $table-color !default;
+$table-hover-bg-factor:       .075 !default;
+$table-hover-bg:              rgba($black, $table-hover-bg-factor) !default;
+
+$table-border-factor:         .1 !default;
+$table-border-width:          $border-width !default;
+$table-border-color:          $border-color !default;
+
+$table-striped-order:         odd !default;
+
+$table-group-separator-color: currentColor !default;
+
+$table-caption-color:         $text-muted !default;
+
+$table-bg-scale:              -80% !default;
+// scss-docs-end table-variables
+
+// scss-docs-start table-loop
+$table-variants: (
+	"primary":    shift-color($primary, $table-bg-scale),
+	"secondary":  shift-color($secondary, $table-bg-scale),
+	"success":    shift-color($success, $table-bg-scale),
+	"info":       shift-color($info, $table-bg-scale),
+	"warning":    shift-color($warning, $table-bg-scale),
+	"danger":     shift-color($danger, $table-bg-scale),
+	"light":      $light,
+	"dark":       $dark,
+) !default;
+// scss-docs-end table-loop
+
+
+$variable-prefix:             fp- !default;
+
+
+$table-bg: $white;
+$da-table-header-background: $almost-white-color;
+$da-table-header-border-color: $light-grey-color;
+$da-table-font-size: 0.93rem;
+$da-table-button-secondary-color: #788994;
+$da-table-cell-padding-left: 18px;
+
+// scss-docs-end theme-colors-rgb
+
+// The contrast ratio to reach against white, to determine if color changes from "light" to "dark". Acceptable values for WCAG 2.0 are 3, 4.5 and 7.
+// See https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast
+$min-contrast-ratio:   4.5 !default;
+
+$color-contrast-dark:      $black !default;
+$color-contrast-light:     $white !default;
+
+$body-bg: #F5F8FA;
+
+
+$line-height-base:            1.5 !default;
+
+
+// scss-docs-start form-check-variables
+$form-check-input-width:                  1em !default;
+// scss-docs-end form-check-variables
+
+
+$font-size-base:              1rem !default; // Assumes the browser default, typically `16px`
+
+
+$spacer: 1rem !default;
+$menu-bg: #44464b;
+
+
+// scss-docs-start headings-variables
+$headings-margin-bottom:      $spacer * .5 !default;
+$headings-font-family:        null !default;
+$headings-font-style:         null !default;
+$headings-font-weight:        500 !default;
+$headings-line-height:        1.2 !default;
+$headings-color:              inherit !default;
+// scss-docs-end headings-variables
+
+$h1-font-size:                $font-size-base * 2.5 !default;
+$h2-font-size:                $font-size-base * 2 !default;
+$h3-font-size:                $font-size-base * 1.75 !default;
+$h4-font-size:                $font-size-base * 1.5 !default;
+$h5-font-size:                $font-size-base * 1.25 !default;
+$h6-font-size:                $font-size-base !default;

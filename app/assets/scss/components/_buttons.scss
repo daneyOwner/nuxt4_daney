@@ -1,0 +1,94 @@
+﻿.btn {
+	@apply py-1.5 inline-block text-center rounded select-none font-[14px];
+	transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+
+	/*Colors*/
+	&-orange {
+		@apply w-[127px] text-white bg-[#ff8c00] hover:bg-[#d57400];
+	}
+	
+	&-primary {
+		@apply w-[127px] text-white bg-[#5490f8] hover:bg-blue-600;
+	}
+
+	&-secondary {
+		@apply w-[127px] text-white bg-gray-500 hover:bg-gray-600;
+	}
+
+	&-success {
+		@apply w-[127px] text-white bg-green-500 hover:bg-green-600;
+	}
+
+	&-danger {
+		@apply w-[127px] text-white bg-red-500 hover:bg-red-600;
+	}
+
+	&-warning {
+		@apply w-[127px] text-white bg-yellow-500 hover:bg-yellow-600;
+	}
+
+	&-info {
+		@apply w-[127px] text-white bg-blue-400 hover:bg-blue-500;
+	}
+
+	&-light {
+		@apply w-[127px] text-black bg-[#ededed] hover:bg-gray-100;
+	}
+
+	&-dark {
+		@apply w-[127px] text-white bg-gray-700 hover:bg-gray-900;
+	}
+
+	&-outline-secondary {
+		@apply py-1.5 px-3 border text-sm text-[#434343];
+		background-color: $white;
+		border-color: #D4D4D4;
+
+		&:hover, :active {
+			background-color: #434343;
+			color: $white !important;
+		}
+	}
+
+	&-passive-dark {
+		@apply text-white bg-gray-700 hover:bg-gray-900 text-black;
+	}
+
+	/*Sizes*/
+	&-sm {
+		@apply py-1.5 text-sm rounded-md;
+	}
+
+	&-lg {
+		@apply py-2 text-xl rounded-md;
+	}
+}
+
+
+.btn:disabled, .btn.disabled, fieldset:disabled .btn {
+	pointer-events: none;
+	opacity: .5;
+	cursor: not-allowed;
+	pointer-events: initial;
+}
+
+.btn-group, .btn-group-vertical {
+	position: relative;
+	display: inline-flex;
+	vertical-align: middle;
+}
+
+.btn-group > .btn:not(:last-child):not(.dropdown-toggle), .btn-group > .btn-group:not(:last-child) > .btn {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.btn-group > .btn:nth-child(n+3), .btn-group > :not(.btn-check) + .btn, .btn-group > .btn-group:not(:first-child) > .btn {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.btn-group > .btn:not(:first-child), .btn-group > .btn-group:not(:first-child) {
+	margin-left: -1px;
+}

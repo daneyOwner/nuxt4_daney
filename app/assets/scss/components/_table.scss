@@ -1,0 +1,45 @@
+.bg-success--table {
+	background-color: rgba(#7BD266, 0.45) !important;
+	box-shadow: none !important;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+	color: white;
+}
+
+.bg-striped {
+	position: relative;
+
+	&::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		bottom: 0;
+		background: repeating-linear-gradient(45deg, transparent, transparent 5px, rgba(0, 0, 0, 0.2) 7px, rgba(0, 0, 0, 0.2) 0px);
+	}
+}
+
+.table-actions {
+	margin: 0 0 -4px;
+
+	//width: calc(100% + #{$table-cell-padding-y*2});
+	//height: calc(100% + #{$table-cell-padding-x*2});
+
+	a, button {
+		padding: 0 5px;
+	}
+
+	button {
+		padding: 5px 5px;
+	}
+
+	button {
+		padding: 0 5px;
+	}
+}
+
+.table > :not(caption) > * > * {
+	border-bottom-width: 0;
+}

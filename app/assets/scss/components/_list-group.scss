@@ -1,0 +1,64 @@
+﻿/* Base list group */
+.list-group {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
+  border-radius: .25rem;
+}
+
+/* List group item */
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: 8px 16px;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, .125);
+}
+
+/* First Item */
+.list-group-item:first-child {
+  border-top-left-radius: .25rem;
+  border-top-right-radius: .25rem;
+}
+
+/* Last Item */
+.list-group-item:last-child {
+  border-bottom-right-radius: .25rem;
+  border-bottom-left-radius: .25rem;
+}
+
+.list-group-item:not(:first-child) {
+  margin-top: -1px;
+}
+
+/* Active Item */
+.list-group-item.active {
+  color: #fff;
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+/* Disabled Item */
+.list-group-item.disabled {
+  color: #6c757d;
+  background-color: rgba(0, 0, 0, .05);
+}
+
+/* Other variations and utilities might include flush list groups, horizontal list groups, etc. */
+
+/* Flush */
+.list-group-flush .list-group-item {
+  border-right: 0;
+  border-left: 0;
+  border-radius: 0;
+}
+
+/* Horizontal */
+.list-group-horizontal {
+  flex-direction: row;
+}
+.list-group-horizontal .list-group-item {
+  margin-right: -1px;
+  margin-bottom: 0;
+}

@@ -1,0 +1,113 @@
+﻿@import "variables";
+@import "./components/tailwind";
+@import "./components/table";
+@import "./components/font-awesome";
+@import "./components/tooltip";
+@import "./components/buttons";
+@import "./components/font";
+@import "./components/modal";
+@import "./components/bootstrap-cuts";
+@import "./components/vue-switches";
+@import "./components/list-group";
+@import "./components/accordion";
+@import "./components/alert";
+@import "./components/form";
+@import "./components/h";
+@import "./functions";
+
+html, body {
+  font-family: Roboto, system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  background: #36393f;
+  color: white;
+  font-size: 1rem;
+}
+
+h1:focus {
+  outline: none;
+}
+
+.btn-link {
+  color: #0071c1;
+}
+
+a {
+  color: #ff8c00;
+
+  &:hover {
+    color: #d57400;
+  }
+}
+
+/*#endregion*/
+
+.pointer {
+  cursor: pointer !important;
+}
+
+.transition:hover {
+  background-color: #3c3c3c !important;
+  color: #fff !important;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar:horizontal {
+
+  height: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #202225;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #3c3c3c;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+label {
+  margin-bottom: 4px;
+}
+
+.form-control:focus {
+  background-color: hsl(216, calc(var(--saturation-factor, 1) * 7.2%), 13.5%);
+  border-color: hsl(216, calc(var(--saturation-factor, 1) * 7.2%), 13.5%);
+  color: hsl(210, calc(var(--saturation-factor, 1) * 2.9%), 86.7%);
+  outline: 0;
+  box-shadow: none;
+}
+
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #6b6b6b !important;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #6b6b6b !important;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #6b6b6b !important;
+}
