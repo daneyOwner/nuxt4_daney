@@ -58,12 +58,14 @@
                           placeholder: 'Filter...',
                           icon: 'i-lucide-search'
                        }"
-                       
-                       @change="(change) => $emit('change', change)"
+                       @change="onChange"
                        @blur="(closing) => $emit('closing', closing)"
                        @focus="(opening) => $emit('opening', opening)"
                        @clear="() => $emit('clear')">
         </u-select-menu>
+        <p v-if="warning" class="text-red-500 text-sm mt-1">
+            {{ warning }}
+        </p>
     </div>
 </template>
 
@@ -74,6 +76,10 @@ export default {
         id: {
             type: String,
             default: ''
+        },
+        max: {
+            type: Number,
+            default: null
         },
         name: {
             type: String,
@@ -99,10 +105,44 @@ export default {
         modelValue: null,
         classes: null,
     },
+    methods: {
+
+        onChange(newValue) {
+            const oldValue = Array.isArray(this.val) ? [...this.val] : []
+
+            // MAX CHECK
+            if (this.max && newValue.length > this.max) {
+                this.warning = `You can only select ${this.max} items`
+                newValue.pop()
+                this.val = [...newValue]
+                return
+            }
+
+            // MIN CHECK (prevent going below)
+            if (this.min && newValue.length < this.min) {
+                this.warning = `You must select at least ${this.min} items`
+                // Restore previous valid value
+                this.val = [...oldValue]
+                return
+            }
+
+            // Clear warning if valid
+            this.warning = null
+            this.$emit('change', newValue)
+        },
+        validate(value) {
+            if (this.min && value.length < this.min) {
+                this.warning = `You must select at least ${this.min} items`
+            } else {
+                this.warning = null
+            }
+        }
+    },
     data() {
         return {
             val: null,
             items: Array,
+            warning: null,
         }
     },
     watch: {
@@ -121,6 +161,9 @@ export default {
             deep: true,
             immediate: true,
         },
+    },
+    mounted() {
+        this.validate(this.val)
     },
 }
 </script>

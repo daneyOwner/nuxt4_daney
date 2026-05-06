@@ -3,7 +3,7 @@
         <!--suppress HtmlFormInputWithoutLabel -->
         <input v-if="typeof row[field] === 'boolean'" type="checkbox" class="form-check-input" :checked="row[field]" onclick="return false;">
         <span v-else-if="typeof row[field] === 'number' && !noDecimals">{{formatNumber(row[field])}}</span>
-        <span v-else-if="replaceZero">{{ row[field] === undefined || row[field] === null || row[field].toString() == "0" ? "-" :  row[field]}}</span>
+        <span v-else-if="replaceZero">{{ row[field] === undefined || row[field] === null || row[field].toString() === "0" ? "-" : row[field] }}</span>
         <span v-else>{{row[field]}}</span>
     </span>
 </template>

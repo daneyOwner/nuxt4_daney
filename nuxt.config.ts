@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 export default defineNuxtConfig({
-    modules: ['@nuxt/ui', '@sidebase/nuxt-auth', 'dayjs-nuxt', '@vesp/nuxt-fontawesome'],
+    modules: ['@nuxt/ui', '@sidebase/nuxt-auth', 'dayjs-nuxt', '@vesp/nuxt-fontawesome', '@nuxt/image'],
     
     fontawesome: {
         suffix: true,
@@ -17,13 +17,7 @@ export default defineNuxtConfig({
     compatibilityDate: '2025-07-15',
     
     auth: {
-        isEnabled: true,
-        disableServerSideAuth: false,
         baseURL: 'http://localhost:3000/api/auth',
-        sessionRefresh: {
-            enablePeriodically: true,
-            enableOnWindowFocus: true,
-        }
     },
 
     components: [
@@ -50,6 +44,10 @@ export default defineNuxtConfig({
         {path: '~/components/shared', extensions: ['vue']},
     ],
 
+    image: {
+        // Options
+    },
+    
     runtimeConfig: {
         daneySecret: '',
         daneyClientId: '',

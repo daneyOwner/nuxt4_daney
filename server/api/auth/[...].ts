@@ -21,12 +21,6 @@ export default NuxtAuthHandler({
             }
 
             return Promise.resolve(token)
-        },
-        session: async ({session, user, token}) => {
-            (session as any).access_token = token.access_token;
-            (session as any).user.id = token.id;
-            (session as any).user.discriminator = token.discriminator;
-            return Promise.resolve(session)
         }
     },
 })

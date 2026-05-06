@@ -1,12 +1,5 @@
 ﻿<style lang="scss" scoped>
-article {
-    margin-top: 56px;
-    overflow-x: hidden;
-}
-
 .page {
-    position: relative;
-    display: flex;
     flex-direction: row;
 }
 
@@ -27,7 +20,7 @@ main, main.sidebar-closed, main.sidebar-open {
 </style>
 
 <template>
-    <div class="page">
+    <div class="relative flex">
         <dashboard-navbar/>
         <side-menu>
             <template #side-menu>
@@ -36,7 +29,7 @@ main, main.sidebar-closed, main.sidebar-open {
             </template>
         </side-menu>
         <main id="main">
-            <article class="container-fluid p-0">
+            <article class="container-fluid p-0 mt-[56px] overflow-x-hidden">
                 <div class="p-2 md:p-4 lg:p-6">
                     <NuxtPage/>
                 </div>

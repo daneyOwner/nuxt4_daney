@@ -1,6 +1,6 @@
 <template>
 	<tr @click="clickedRow($event)" :class="rowClasses" class="da-table-row">
-		<td v-if="hasSelectColumn" style="width: 10px;" class="!p-0 select-column">
+		<td v-if="hasSelectColumn" style="width: 10px;" class="p-0! select-column">
 			<template v-if="row.hasSelect === undefined || row.hasSelect">
 				<label :for="'selectRow_' + row[rowKey]"
 					class="hidden">Select {{ row[rowKey] }}</label>
@@ -16,7 +16,7 @@
 	</tr>
 </template>
 
-<script lang="ts">
+<script>
 export default defineComponent({
 	name: "da-table-row",
 	props: {

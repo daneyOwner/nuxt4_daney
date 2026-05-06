@@ -12,7 +12,7 @@
 </style>
 
 <template>
-    <nav class="bg-[#202225] fixed w-full py-2 text-white z-[1030]">
+    <nav class="bg-[#202225] fixed w-full py-2 text-white z-1030">
         <div class="mx-auto flex items-center justify-between ms-4 me-4 h-[40px]">
             <div class="flex items-center">
                 <button @click="openSideMenu" class="lg:hidden me-4">
@@ -35,10 +35,10 @@
                 <nuxt-link class="nav-link" to="/">Home</nuxt-link>
                 <nuxt-link class="nav-link" to="/Commands">Commands</nuxt-link>
                 <template v-if="authenticated === 'authenticated'">
-                    <nuxt-link class="nav-link !text-white" to="/User">Dashboard</nuxt-link>
-                    <button class="nav-link !pe-0" @click="signOut">Logout</button>
+                    <nuxt-link class="nav-link text-white!" to="/User">Dashboard</nuxt-link>
+                    <nuxt-link class="nav-link pe-0!" to="/Logout">Logout</nuxt-link>
                 </template>
-                <button v-else class="nav-link" @click="signIn(`discord`)">Log in</button>
+                <button v-else class="nav-link cursor-pointer!" @click="signIn(`discord`)">Log in</button>
             </div>
         </div>
     </nav>

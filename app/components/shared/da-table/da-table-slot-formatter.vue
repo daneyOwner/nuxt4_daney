@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 export default defineComponent({
 	name: "da-table-slot-formatter",
 	props: {

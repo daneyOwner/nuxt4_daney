@@ -2,7 +2,7 @@
     <client-only>
         <template v-if="!disabled" v-show="active || locked">
             <div :class="[{'absolute': !fixed}, {'fixed': fixed}]" class="inset-x-0 inset-y-0">
-                <div class="absolute z-[9998] text-center left-1/2 top-1/2 transform -translate-y-1/2 -translate-x-1/2">
+                <div class="absolute z-9998 text-center left-1/2 top-1/2 transform -translate-y-1/2 -translate-x-1/2">
                     <font-awesome-icon icon="fa-solid fa-spinner" class="text-[#ff8c00]" spin :size="size"/>
                     <div v-if="text" class="mt-3">{{ text }}</div>
                 </div>

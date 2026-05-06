@@ -61,7 +61,7 @@
 
 <template>
     <div class="accordion-item">
-        <h2 class="accordion-header" :id="'heading'+ guid">
+        <h2 class="accordion-header" :id="'heading' + guid">
             <button v-if="closeable" class="accordion-button" type="button" data-bs-toggle="collapse" 
                     :data-bs-target="'#collapse' + guid" aria-expanded="true" :aria-controls="'collapse' + guid">
                 {{ title }}

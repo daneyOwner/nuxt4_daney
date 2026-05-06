@@ -138,7 +138,7 @@
 
 <template>
     <div ref="serverMenu" class="serverMenu">
-        <u-tooltip :popper="{ placement: 'right' }" class="!block" :text="user.name">
+        <u-tooltip :popper="{ placement: 'right' }" class="block!" :text="user.name">
             <nuxt-link to="/User" class="serverMenu__listItem user">
                 <div></div>
                 <div>
@@ -151,9 +151,9 @@
 
         <template v-if="finishedGuilds" v-for="guild in finishedGuilds">
             <div class="guildSeparator"></div>
-            <u-tooltip :popper="{ placement: 'right' }" class="!block" :text="guild.name">
-                <nuxt-link :to="'/Server/' + guild.id"
-                           :class="{'router-link-active': route.fullPath.includes('/Server/' + guild.id)}"
+            <u-tooltip :popper="{ placement: 'right' }" class="block!" :text="guild.name">
+                <nuxt-link :to="`/Server/${guild.id}`"
+                           :class="{'router-link-active': route.fullPath.includes(`/Server/${guild.id}`)}"
                            class="serverMenu__listItem">
                     <div></div>
                     <div>
@@ -167,7 +167,7 @@
                 </nuxt-link>
             </u-tooltip>
         </template>
-        <u-tooltip :popper="{ placement: 'right' }" class="!block" text="Invite Bot">
+        <u-tooltip :popper="{ placement: 'right' }" class="block!" text="Invite Bot">
             <a href="" class="serverMenu__listItem greenButton">
                 <div></div>
                 <div>
@@ -177,7 +177,7 @@
                 </div>
             </a>
         </u-tooltip>
-        <u-tooltip :popper="{ placement: 'right' }" class="!block" text="Reload Server List">
+        <u-tooltip :popper="{ placement: 'right' }" class="block!" text="Reload Server List">
             <a href="#" @click="resetServerData"
                class="serverMenu__listItem greenButton">
                 <div></div>

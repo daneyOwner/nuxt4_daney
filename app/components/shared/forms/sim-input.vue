@@ -63,7 +63,7 @@
     }
 
     &__labelTextFocus {
-        top: 1px;
+        top: -3px;
         line-height: 0;
         height: 2px;
         color: hsl(210, calc(1 * 2.9%), 86.7%);
@@ -103,9 +103,8 @@
                class="form-control w-100 simInput__input"
                :class="[inputClasses, {'simInput__input__hasMax': max !== 0}, {'simInput__black': black}]"
                :maxlength="max !== 0 ? max : ''"/>
-        <span v-if="hasCounter" class="simInput__charCounter position-absolute">{{
-                val?.length == null ? 0 : val?.length
-            }}{{ max !== null ? " / " + max : "" }}</span>
+        <span v-if="hasCounter" class="simInput__charCounter position-absolute">
+            {{ val?.length == null ? 0 : val?.length }}{{ max !== null ? " / " + max : "" }}</span>
     </div>
 </template>
 

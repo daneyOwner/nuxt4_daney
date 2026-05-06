@@ -6,7 +6,6 @@
     background-color: hsl(223, calc(var(--saturation-factor, 1) * 6.9%), 19.8%);
     height: calc(100vh - 56px);
     margin-top: 56px;
-    //noinspection CssInvalidPropertyValue
     overflow-y: overlay;
 
     & > ul > li {

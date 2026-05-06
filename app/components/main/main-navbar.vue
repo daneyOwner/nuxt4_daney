@@ -37,9 +37,9 @@
                 <nuxt-link class="nav-link" to="/Commands">Commands</nuxt-link>
                 <template v-if="authenticated === 'authenticated'">
                     <nuxt-link class="nav-link" to="/User">Dashboard</nuxt-link>
-                    <button class="nav-link !pe-0" @click="signOut">Logout</button>
+                    <nuxt-link class="nav-link pe-0!" to="/Logout">Logout</nuxt-link>
                 </template>
-                <button v-else class="nav-link" @click="signIn(`discord`, { callbackUrl: '/User' })">Log in</button>
+                <button v-else class="nav-link cursor-pointer" @click="signIn(`discord`, { callbackUrl: '/User' })">Log in</button>
             </div>
         </div>
     </nav>

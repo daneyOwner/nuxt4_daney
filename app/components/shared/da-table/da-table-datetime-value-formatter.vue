@@ -2,7 +2,7 @@
 	<span>{{ getDate(row[field]) }}</span>
 </template>
 
-<script lang="ts">
+<script>
 let dayjs = useDayjs();
 export default defineComponent({
 	name: "da-table-datetime-value-formatter",

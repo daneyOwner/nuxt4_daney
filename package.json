@@ -11,6 +11,7 @@
     "buildApi": "node swagger-codegen-axios.cjs http://localhost:5000"
   },
   "dependencies": {
+    "@nuxt/image": "^2.0.0",
     "@nuxt/ui": "^4.7.1",
     "@sidebase/nuxt-auth": "^1.2.0",
     "@vesp/nuxt-fontawesome": "^2.0.0",

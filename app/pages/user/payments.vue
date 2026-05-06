@@ -28,7 +28,7 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import daTableSlotFormatter from "~/components/shared/da-table/da-table-slot-formatter.vue";
 
 definePageMeta({

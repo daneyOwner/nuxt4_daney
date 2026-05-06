@@ -55,7 +55,7 @@
     }
 
     &__labelTextFocus {
-        top: 1px;
+        top: -4px;
         transform: translateY(-68%) scale(0.75);
         height: 2px;
         line-height: 2px;
@@ -92,9 +92,8 @@
         <textarea v-model="val" @focus="onFocus" @blur="onBlur" style="height: 62px;" :disabled="disabled"
                   class="form-control simTextArea__textarea" :class="[textareaClasses]"
                   :maxlength="max !== 0 ? max : ''" ref="textarea" @input="expand"></textarea>
-        <span class="simTextArea__charCounter">{{
-                val?.length == null ? 0 : val?.length
-            }}{{ max !== 0 ? " / " + max : "" }}</span>
+        <span class="simTextArea__charCounter">
+            {{ val?.length == null ? 0 : val?.length }}{{ max !== 0 ? " / " + max : "" }}</span>
     </div>
 </template>
 
