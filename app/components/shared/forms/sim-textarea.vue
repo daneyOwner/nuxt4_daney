@@ -110,7 +110,7 @@ let props = defineProps({
         default: 0,
     },
     title: {
-        type: String,
+        type: [String, null, undefined],
         default: "",
     },
     classes: {

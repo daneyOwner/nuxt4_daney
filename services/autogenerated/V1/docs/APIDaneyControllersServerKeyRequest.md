@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**GuildID** | **number** |  | [optional] [default to undefined]
+**GuildID** | **string** |  | [optional] [default to undefined]
 **Uids** | **Array&lt;string&gt;** |  | [optional] [default to undefined]
 **Types** | **Array&lt;number&gt;** |  | [optional] [default to undefined]
 

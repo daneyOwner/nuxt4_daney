@@ -30,11 +30,11 @@ export const DiscordRoleApiAxiosParamCreator = function (configuration?: Configu
     return {
         /**
          * 
-         * @param {number} [guildID] 
+         * @param {string} [guildID] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRoles: async (guildID?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getRoles: async (guildID?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v1.0/discordrole/get-roles`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -77,11 +77,11 @@ export const DiscordRoleApiFp = function(configuration?: Configuration) {
     return {
         /**
          * 
-         * @param {number} [guildID] 
+         * @param {string} [guildID] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getRoles(guildID?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<APIDaneyModelsCommonSelectItem>>> {
+        async getRoles(guildID?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<APIDaneyModelsCommonSelectItem>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRoles(guildID, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DiscordRoleApi.getRoles']?.[localVarOperationServerIndex]?.url;
@@ -112,7 +112,7 @@ export const DiscordRoleApiFactory = function (configuration?: Configuration, ba
  * Request parameters for getRoles operation in DiscordRoleApi.
  */
 export interface DiscordRoleApiGetRolesRequest {
-    readonly guildID?: number
+    readonly guildID?: string
 }
 
 /**

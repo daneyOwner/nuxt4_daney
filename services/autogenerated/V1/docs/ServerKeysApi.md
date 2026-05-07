@@ -6,7 +6,7 @@ All URIs are relative to *http://localhost*
 |------------- | ------------- | -------------|
 |[**getValues**](#getvalues) | **GET** /api/v1.0/serverkeys/get-values | |
 |[**update**](#update) | **PUT** /api/v1.0/serverkeys/update | |
-|[**upsertall**](#upsertall) | **PUT** /api/v1.0/serverkeys/upsertall | |
+|[**upsertAll**](#upsertall) | **PUT** /api/v1.0/serverkeys/upsert-all | |
 
 # **getValues**
 > Array<APIDaneyRepositoriesEntitiesServerKey> getValues()
@@ -23,7 +23,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new ServerKeysApi(configuration);
 
-let guildID: number; // (optional) (default to undefined)
+let guildID: string; // (optional) (default to undefined)
 let request_body: Array<string>; // (optional)
 
 const { status, data } = await apiInstance.getValues(
@@ -37,7 +37,7 @@ const { status, data } = await apiInstance.getValues(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **request_body** | **Array<string>**|  | |
-| **guildID** | [**number**] |  | (optional) defaults to undefined|
+| **guildID** | [**string**] |  | (optional) defaults to undefined|
 
 
 ### Return type
@@ -79,7 +79,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new ServerKeysApi(configuration);
 
-let guildID: number; // (optional) (default to undefined)
+let guildID: string; // (optional) (default to undefined)
 let uid: string; // (optional) (default to undefined)
 let value: string; // (optional) (default to undefined)
 
@@ -94,7 +94,7 @@ const { status, data } = await apiInstance.update(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **guildID** | [**number**] |  | (optional) defaults to undefined|
+| **guildID** | [**string**] |  | (optional) defaults to undefined|
 | **uid** | [**string**] |  | (optional) defaults to undefined|
 | **value** | [**string**] |  | (optional) defaults to undefined|
 
@@ -123,8 +123,8 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **upsertall**
-> upsertall()
+# **upsertAll**
+> upsertAll()
 
 
 ### Example
@@ -138,10 +138,10 @@ import {
 const configuration = new Configuration();
 const apiInstance = new ServerKeysApi(configuration);
 
-let guildID: number; // (optional) (default to undefined)
+let guildID: string; // (optional) (default to undefined)
 let APIDaneyRepositoriesEntitiesServerKeyRequester: Array<APIDaneyRepositoriesEntitiesServerKeyRequester>; // (optional)
 
-const { status, data } = await apiInstance.upsertall(
+const { status, data } = await apiInstance.upsertAll(
     guildID,
     APIDaneyRepositoriesEntitiesServerKeyRequester
 );
@@ -152,7 +152,7 @@ const { status, data } = await apiInstance.upsertall(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **APIDaneyRepositoriesEntitiesServerKeyRequester** | **Array<APIDaneyRepositoriesEntitiesServerKeyRequester>**|  | |
-| **guildID** | [**number**] |  | (optional) defaults to undefined|
+| **guildID** | [**string**] |  | (optional) defaults to undefined|
 
 
 ### Return type

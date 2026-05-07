@@ -1,6 +1,5 @@
 .gitignore
 .npmignore
-.openapi-generator-ignore
 api.ts
 api/auth-api.ts
 api/discord-category-api.ts
@@ -8,7 +7,6 @@ api/discord-channel-api.ts
 api/discord-guild-api.ts
 api/discord-role-api.ts
 api/guild-api.ts
-api/moderation-logging-api.ts
 api/server-keys-api.ts
 api/server-keys-base-api.ts
 api/user-api.ts
@@ -21,16 +19,13 @@ docs/APIDaneyModelsCommonSelectItem.md
 docs/APIDaneyModelsServerKeysServerKeyModel.md
 docs/APIDaneyRepositoriesEntitiesServerKey.md
 docs/APIDaneyRepositoriesEntitiesServerKeyRequester.md
-docs/APIDaneySharedModelsPagedListOfDaneyDataAccessEntitiesModerationLogging.md
 docs/AuthApi.md
-docs/DaneyDataAccessEntitiesModerationLogging.md
 docs/DiscordCategoryApi.md
 docs/DiscordChannelApi.md
 docs/DiscordGuildApi.md
 docs/DiscordRoleApi.md
 docs/GuildApi.md
 docs/MicrosoftAspNetCoreMvcProblemDetails.md
-docs/ModerationLoggingApi.md
 docs/ServerKeysApi.md
 docs/ServerKeysBaseApi.md
 docs/UserApi.md
@@ -42,7 +37,5 @@ models/apidaney-models-common-select-item.ts
 models/apidaney-models-server-keys-server-key-model.ts
 models/apidaney-repositories-entities-server-key-requester.ts
 models/apidaney-repositories-entities-server-key.ts
-models/apidaney-shared-models-paged-list-of-daney-data-access-entities-moderation-logging.ts
-models/daney-data-access-entities-moderation-logging.ts
 models/index.ts
 models/microsoft-asp-net-core-mvc-problem-details.ts

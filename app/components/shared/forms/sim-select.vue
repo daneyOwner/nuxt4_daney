@@ -81,6 +81,10 @@ export default {
             type: Number,
             default: null
         },
+        min: {
+            type: Number,
+            default: null
+        },
         name: {
             type: String,
             default: ''
@@ -106,35 +110,35 @@ export default {
         classes: null,
     },
     methods: {
-
-        onChange(newValue) {
-            const oldValue = Array.isArray(this.val) ? [...this.val] : []
+        onChange() {
+            const newValue = Array.isArray(this.val) ? [...this.val] : [];
+            const oldValue = Array.isArray(this.modelValue) ? [...this.modelValue] : [];
 
             // MAX CHECK
             if (this.max && newValue.length > this.max) {
-                this.warning = `You can only select ${this.max} items`
-                newValue.pop()
-                this.val = [...newValue]
-                return
+                this.warning = `You can only select ${this.max} items`;
+                newValue.pop();
+                this.val = [...newValue];
+                return;
             }
 
             // MIN CHECK (prevent going below)
             if (this.min && newValue.length < this.min) {
-                this.warning = `You must select at least ${this.min} items`
+                this.warning = `You must select at least ${this.min} items`;
                 // Restore previous valid value
-                this.val = [...oldValue]
-                return
+                this.val = [...oldValue];
+                return;
             }
 
             // Clear warning if valid
-            this.warning = null
-            this.$emit('change', newValue)
+            this.warning = null;
+            this.$emit('change', newValue);
         },
         validate(value) {
             if (this.min && value.length < this.min) {
-                this.warning = `You must select at least ${this.min} items`
+                this.warning = `You must select at least ${this.min} items`;
             } else {
-                this.warning = null
+                this.warning = null;
             }
         }
     },
@@ -149,7 +153,7 @@ export default {
         val: {
             handler: function (val, oldVal) {
                 if (val == null) return;
-                this.$emit("update:modelValue", val)
+                this.$emit("update:modelValue", val);
             },
             deep: true,
             immediate: true,
@@ -163,7 +167,7 @@ export default {
         },
     },
     mounted() {
-        this.validate(this.val)
+        this.validate(this.val);
     },
 }
 </script>

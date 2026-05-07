@@ -71,35 +71,40 @@
     <div class="navMenu">
         <ul ref="navList" class="nav flex-column">
             <li class="nav-item px-2">
-                <nuxt-link class="nav-link" :to="'/Server/' + guildUid + '/Dashboard'">
+                <nuxt-link class="nav-link" :to="GetLink('Dashboard')">
                     Dashboard
                 </nuxt-link>
             </li>
             <li class="nav-item px-2">
-                <span class="fw-bolder">Verification System</span>
+                <span class="fw-bolder">Setup</span>
             </li>
             <li class="nav-item px-2">
-                <nuxt-link class="nav-link" :to="'/Server/' + guildUid + '/VerificationSetup'">
-                    Verification Setup
+                <nuxt-link class="nav-link" :to="GetLink('setup/verificationSetup')">
+                    Verification
+                </nuxt-link>
+            </li>
+            <li class="nav-item px-2">
+                <nuxt-link class="nav-link" :to="GetLink('setup/flashAndDashSetup')">
+                    Flash And Dash
                 </nuxt-link>
             </li>
 <!--            <li class="nav-item px-2">
-                <nuxt-link class="nav-link" :to="'/Server/' + guildUid + '/Settings'">
+                <nuxt-link class="nav-link" :to="GetLink('Settings')">
                     Settings
                 </nuxt-link>
             </li>
             <li class="nav-item px-2">
-                <nuxt-link class="nav-link" :to="'/Server/' + guildUid + '/ModerationLogs'">
+                <nuxt-link class="nav-link" :to="GetLink('ModerationLogs')">
                     Moderation Logging
                 </nuxt-link>
             </li>
             <li class="nav-item px-2">
-                <nuxt-link class="nav-link" :to="'/Server/' + guildUid + '/Leveling'">
+                <nuxt-link class="nav-link" :to="GetLink('Leveling')">
                     Leveling
                 </nuxt-link>
             </li>
             <li class="nav-item px-2">
-                <nuxt-link class="nav-link" :to="'/Server/' + guildUid + '/StickyNotes'">
+                <nuxt-link class="nav-link" :to="GetLink('StickyNotes')">
                     Sticky Notes
                 </nuxt-link>
             </li>-->
@@ -126,13 +131,16 @@ export default {
     },
     methods: {
         fullPathChanged(path) {
-            path = path.replace("/Server/", "").replace("/server/", "");
+            path = path.replace("/server/", "");
             if (path.includes("/")) path = path.split("/")[0];
             this.guildUid = path;
+        },
+        GetLink (value) {
+            return `/server/${this.guildUid}/${value}`
         }
     },
     mounted() {
         this.fullPathChanged(this.$route.path);
-    },
+    }
 }
 </script>

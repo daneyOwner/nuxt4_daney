@@ -15,7 +15,7 @@
 
 
 export interface APIDaneyControllersServerKeyRequest {
-    'GuildID'?: number;
+    'GuildID'?: string;
     'Uids'?: Array<string> | null;
     'Types'?: Array<number> | null;
 }

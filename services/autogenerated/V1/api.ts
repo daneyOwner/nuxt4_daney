@@ -20,7 +20,6 @@ export * from './api/discord-channel-api';
 export * from './api/discord-guild-api';
 export * from './api/discord-role-api';
 export * from './api/guild-api';
-export * from './api/moderation-logging-api';
 export * from './api/server-keys-api';
 export * from './api/server-keys-base-api';
 export * from './api/user-api';

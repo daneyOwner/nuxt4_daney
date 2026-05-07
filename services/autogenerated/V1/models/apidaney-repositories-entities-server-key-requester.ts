@@ -15,7 +15,7 @@
 
 
 export interface APIDaneyRepositoriesEntitiesServerKeyRequester {
-    'GuildID'?: number | null;
+    'GuildID'?: string | null;
     'UID'?: string;
     'Value'?: any | null;
 }

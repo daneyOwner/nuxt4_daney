@@ -1,20 +1,32 @@
 <style scoped lang="scss">
+.da-panel-header {
+    & > .da-panel-header-buttons:deep() {
+        margin-left: 0;
+        margin-right: 0;
+        
+        & a:first-child, button:first-child {
+            margin-left: 0;
+        }
+
+        & a, button {
+            margin-left: 15px;
+        }
+    }
+}
+
 @media (max-width: 1100px) {
     .da-panel-header {
         flex-direction: column;
+        
 
-        & > .da-panel-header-buttons {
-            margin-left: 0;
-            margin-right: 0;
-
+        & > .da-panel-header-buttons:deep() {
             & a:first-child, button:first-child {
                 margin-left: 0;
             }
 
             & a, button {
                 padding: 0.286rem 1.55rem;
-                margin-left: 0;
-                width: 100%;
+                width: calc(50% - (15px / 2));
             }
 
             & a:not(:last-child), button:not(:last-child) {
@@ -28,10 +40,7 @@
     .da-panel-header {
         flex-direction: column;
 
-        & > .da-panel-header-buttons {
-            margin-left: 0;
-            margin-right: 0;
-
+        & > .da-panel-header-buttons:deep() {
             & a, button {
                 padding: 0.286rem 1.55rem;
                 margin-left: 0;
@@ -335,7 +344,7 @@ export default {
             default: false
         },
         isLoading: {
-            type: Boolean,
+            type: [Boolean, null, undefined],
             default: false
         },
         loadError: {

@@ -152,8 +152,8 @@
         <template v-if="finishedGuilds" v-for="guild in finishedGuilds">
             <div class="guildSeparator"></div>
             <u-tooltip :popper="{ placement: 'right' }" class="block!" :text="guild.name">
-                <nuxt-link :to="`/Server/${guild.id}`"
-                           :class="{'router-link-active': route.fullPath.includes(`/Server/${guild.id}`)}"
+                <nuxt-link :to="`/server/${guild.id}`"
+                           :class="{'router-link-active': route.fullPath.includes(`/server/${guild.id}`)}"
                            class="serverMenu__listItem">
                     <div></div>
                     <div>

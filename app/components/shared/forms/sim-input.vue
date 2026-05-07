@@ -122,9 +122,11 @@ export default {
         },
         max: {
             default: null,
+            type: Number,
         },
         title: {
             default: "",
+            type: [String, null, undefined],
         },
         classes: {
             default: "",

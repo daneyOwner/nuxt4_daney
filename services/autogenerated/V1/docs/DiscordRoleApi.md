@@ -21,7 +21,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new DiscordRoleApi(configuration);
 
-let guildID: number; // (optional) (default to undefined)
+let guildID: string; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.getRoles(
     guildID
@@ -32,7 +32,7 @@ const { status, data } = await apiInstance.getRoles(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **guildID** | [**number**] |  | (optional) defaults to undefined|
+| **guildID** | [**string**] |  | (optional) defaults to undefined|
 
 
 ### Return type

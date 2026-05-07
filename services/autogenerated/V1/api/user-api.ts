@@ -30,11 +30,11 @@ export const UserApiAxiosParamCreator = function (configuration?: Configuration)
     return {
         /**
          * 
-         * @param {number} [userID] 
+         * @param {string} [userID] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSingle: async (userID?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSingle: async (userID?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v1.0/user/get-single`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -68,12 +68,12 @@ export const UserApiAxiosParamCreator = function (configuration?: Configuration)
         },
         /**
          * 
-         * @param {number} [userID] 
+         * @param {string} [userID] 
          * @param {number} [timezone] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        setTimeZone: async (userID?: number, timezone?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        setTimeZone: async (userID?: string, timezone?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v1.0/user/set-time-zone`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -120,11 +120,11 @@ export const UserApiFp = function(configuration?: Configuration) {
     return {
         /**
          * 
-         * @param {number} [userID] 
+         * @param {string} [userID] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSingle(userID?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<APIDaneyModelsAuthGetTokenResponse>> {
+        async getSingle(userID?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<APIDaneyModelsAuthGetTokenResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSingle(userID, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['UserApi.getSingle']?.[localVarOperationServerIndex]?.url;
@@ -132,12 +132,12 @@ export const UserApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @param {number} [userID] 
+         * @param {string} [userID] 
          * @param {number} [timezone] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async setTimeZone(userID?: number, timezone?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<APIDaneyModelsAuthGetTokenResponse>> {
+        async setTimeZone(userID?: string, timezone?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<APIDaneyModelsAuthGetTokenResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.setTimeZone(userID, timezone, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['UserApi.setTimeZone']?.[localVarOperationServerIndex]?.url;
@@ -177,14 +177,14 @@ export const UserApiFactory = function (configuration?: Configuration, basePath?
  * Request parameters for getSingle operation in UserApi.
  */
 export interface UserApiGetSingleRequest {
-    readonly userID?: number
+    readonly userID?: string
 }
 
 /**
  * Request parameters for setTimeZone operation in UserApi.
  */
 export interface UserApiSetTimeZoneRequest {
-    readonly userID?: number
+    readonly userID?: string
 
     readonly timezone?: number
 }

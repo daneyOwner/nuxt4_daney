@@ -12,7 +12,7 @@ export default defineNuxtConfig({
         }
     },
     
-    css: ['~/assets/css/main.css', '@fortawesome/fontawesome-svg-core/styles.css'],
+    css: ['~/assets/css/main.css'],
 
     compatibilityDate: '2025-07-15',
     

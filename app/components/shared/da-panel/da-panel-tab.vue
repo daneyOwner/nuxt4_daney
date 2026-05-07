@@ -11,68 +11,94 @@
     </div>
 </template>
 
-<script>
-import {v4 as newGuid} from "uuid";
+<script lang="ts">
+import { defineComponent } from "vue";
+import { v4 as newGuid } from "uuid";
 
-export default {
+interface PanelParent {
+    _isPanel?: boolean;
+    _hasToggle?: boolean;
+    activeTab?: string;
+    tabs: any[];
+    index?: number;
+}
+
+export default defineComponent({
     name: "da-panel-tab",
-    abstract: true,
     inheritAttrs: false,
-    props: {
-        print: {default: true},
-        idField: {
-            default() {
-                return newGuid();
-            }
-        },
-        name: {default: ""},
-        icon: {default: false},
-        iconComponent: {default: false},
-        defaultActive: {default: false},
-        hasHeader: {default: true},
-        show: {default: true},
-        isDisabled: {default: false}
-    },
-    computed: {
-        showTab() {
-            if (this.panel._hasToggle && this.panel.activeTab === this.idField) return true;
-            else if (this.panel._hasToggle && this.defaultActive && this.panel.activeTab === '') return true;
-            else if (!this.panel._hasToggle && this.show && !this.isDisabled) return true;
 
+    props: {
+        print: { type: Boolean, default: true },
+
+        idField: {
+            type: String,
+            default: () => newGuid()
+        },
+
+        name: { type: String, default: "" },
+
+        icon: { type: [String, null], default: false },
+
+        iconComponent: { type: [Object, Function] as any, default: false },
+
+        defaultActive: { type: Boolean, default: false },
+
+        hasHeader: { type: Boolean, default: true },
+
+        show: { type: Boolean, default: true },
+
+        isDisabled: { type: Boolean, default: false }
+    },
+
+    data() {
+        return {
+            panel: null as PanelParent | null,
+            _tabs: null as PanelParent | null
+        };
+    },
+
+    computed: {
+        showTab(): boolean {
+            if (this.panel?._hasToggle && this.panel.activeTab === this.idField) return true;
+            if (this.panel?._hasToggle && this.defaultActive && this.panel.activeTab === "") return true;
+            if (!this.panel?._hasToggle && this.show && !this.isDisabled) return true;
             return false;
         }
     },
-    data() {
-        return {
-            panel: null,
-        };
-    },
+
     created() {
-        this._isPanelTab = true;
-        let tabs = this;
-        while (!this._tabs && tabs.$parent) {
-            if (tabs._isPanel) {
-                this.panel = tabs;
-                tabs.tabs.push(this);
-                this._tabs = tabs;
+        (this as any)._isPanelTab = true;
+
+        let parent: any = this.$parent;
+
+        while (parent) {
+            if (parent._isPanel) {
+                this.panel = parent;
+                parent.tabs.push(this);
+                this._tabs = parent;
+                break;
             }
-            tabs = tabs.$parent;
+            parent = parent.$parent;
         }
-        if (!this._tabs) throw Error('da-panel-tab depend on da-panel.');
+
+        if (!this._tabs) {
+            throw new Error("da-panel-tab depends on da-panel.");
+        }
     },
-    beforeDestroy() {
-        if (this._tabs) {
-            this._tabs.tabs = this._tabs.tabs.filter(el => el !== this);
+
+    beforeUnmount() {
+        if (!this._tabs) return;
+
+        // Remove from tabs
+        this._tabs.tabs = this._tabs.tabs.filter((el: any) => el !== this);
+
+        // Reset active index if needed
+        if (this._tabs.active === (this as any).index) {
+            this._tabs.index = 0;
         }
-        if (this._tabs) {
-            if (this._tabs.active === this.index) {
-                this._tabs.index = 0;
-            }
-        }
-        if (this._tabs) {
-            let id = this._tabs.tabs.indexOf(this);
-            if (~id) this._tabs.tabs.splice(id, 1);
-        }
+
+        const idx = this._tabs.tabs.indexOf(this);
+        if (idx !== -1) this._tabs.tabs.splice(idx, 1);
     }
-};
+});
 </script>

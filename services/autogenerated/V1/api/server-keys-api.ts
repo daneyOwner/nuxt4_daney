@@ -32,12 +32,12 @@ export const ServerKeysApiAxiosParamCreator = function (configuration?: Configur
     return {
         /**
          * 
-         * @param {number} [guildID] 
+         * @param {string} [guildID] 
          * @param {Array<string>} [request_body] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getValues: async (guildID?: number, request_body?: Array<string>, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getValues: async (guildID?: string, request_body?: Array<string>, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v1.0/serverkeys/get-values`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -73,13 +73,13 @@ export const ServerKeysApiAxiosParamCreator = function (configuration?: Configur
         },
         /**
          * 
-         * @param {number} [guildID] 
+         * @param {string} [guildID] 
          * @param {string} [uid] 
          * @param {string} [value] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        update: async (guildID?: number, uid?: string, value?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        update: async (guildID?: string, uid?: string, value?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v1.0/serverkeys/update`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -120,13 +120,13 @@ export const ServerKeysApiAxiosParamCreator = function (configuration?: Configur
         },
         /**
          * 
-         * @param {number} [guildID] 
+         * @param {string} [guildID] 
          * @param {Array<APIDaneyRepositoriesEntitiesServerKeyRequester>} [APIDaneyRepositoriesEntitiesServerKeyRequester] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        upsertall: async (guildID?: number, APIDaneyRepositoriesEntitiesServerKeyRequester?: Array<APIDaneyRepositoriesEntitiesServerKeyRequester>, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/api/v1.0/serverkeys/upsertall`;
+        upsertAll: async (guildID?: string, APIDaneyRepositoriesEntitiesServerKeyRequester?: Array<APIDaneyRepositoriesEntitiesServerKeyRequester>, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/v1.0/serverkeys/upsert-all`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -169,12 +169,12 @@ export const ServerKeysApiFp = function(configuration?: Configuration) {
     return {
         /**
          * 
-         * @param {number} [guildID] 
+         * @param {string} [guildID] 
          * @param {Array<string>} [request_body] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getValues(guildID?: number, request_body?: Array<string>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<APIDaneyRepositoriesEntitiesServerKey>>> {
+        async getValues(guildID?: string, request_body?: Array<string>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<APIDaneyRepositoriesEntitiesServerKey>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getValues(guildID, request_body, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ServerKeysApi.getValues']?.[localVarOperationServerIndex]?.url;
@@ -182,13 +182,13 @@ export const ServerKeysApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @param {number} [guildID] 
+         * @param {string} [guildID] 
          * @param {string} [uid] 
          * @param {string} [value] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async update(guildID?: number, uid?: string, value?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async update(guildID?: string, uid?: string, value?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.update(guildID, uid, value, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ServerKeysApi.update']?.[localVarOperationServerIndex]?.url;
@@ -196,15 +196,15 @@ export const ServerKeysApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @param {number} [guildID] 
+         * @param {string} [guildID] 
          * @param {Array<APIDaneyRepositoriesEntitiesServerKeyRequester>} [APIDaneyRepositoriesEntitiesServerKeyRequester] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async upsertall(guildID?: number, APIDaneyRepositoriesEntitiesServerKeyRequester?: Array<APIDaneyRepositoriesEntitiesServerKeyRequester>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.upsertall(guildID, APIDaneyRepositoriesEntitiesServerKeyRequester, options);
+        async upsertAll(guildID?: string, APIDaneyRepositoriesEntitiesServerKeyRequester?: Array<APIDaneyRepositoriesEntitiesServerKeyRequester>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.upsertAll(guildID, APIDaneyRepositoriesEntitiesServerKeyRequester, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ServerKeysApi.upsertall']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ServerKeysApi.upsertAll']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
@@ -236,12 +236,12 @@ export const ServerKeysApiFactory = function (configuration?: Configuration, bas
         },
         /**
          * 
-         * @param {ServerKeysApiUpsertallRequest} requestParameters Request parameters.
+         * @param {ServerKeysApiUpsertAllRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        upsertall(requestParameters: ServerKeysApiUpsertallRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.upsertall(requestParameters.guildID, requestParameters.APIDaneyRepositoriesEntitiesServerKeyRequester, options).then((request) => request(axios, basePath));
+        upsertAll(requestParameters: ServerKeysApiUpsertAllRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.upsertAll(requestParameters.guildID, requestParameters.APIDaneyRepositoriesEntitiesServerKeyRequester, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -250,7 +250,7 @@ export const ServerKeysApiFactory = function (configuration?: Configuration, bas
  * Request parameters for getValues operation in ServerKeysApi.
  */
 export interface ServerKeysApiGetValuesRequest {
-    readonly guildID?: number
+    readonly guildID?: string
 
     readonly request_body?: Array<string>
 }
@@ -259,7 +259,7 @@ export interface ServerKeysApiGetValuesRequest {
  * Request parameters for update operation in ServerKeysApi.
  */
 export interface ServerKeysApiUpdateRequest {
-    readonly guildID?: number
+    readonly guildID?: string
 
     readonly uid?: string
 
@@ -267,10 +267,10 @@ export interface ServerKeysApiUpdateRequest {
 }
 
 /**
- * Request parameters for upsertall operation in ServerKeysApi.
+ * Request parameters for upsertAll operation in ServerKeysApi.
  */
-export interface ServerKeysApiUpsertallRequest {
-    readonly guildID?: number
+export interface ServerKeysApiUpsertAllRequest {
+    readonly guildID?: string
 
     readonly APIDaneyRepositoriesEntitiesServerKeyRequester?: Array<APIDaneyRepositoriesEntitiesServerKeyRequester>
 }
@@ -301,12 +301,12 @@ export class ServerKeysApi extends BaseAPI {
 
     /**
      * 
-     * @param {ServerKeysApiUpsertallRequest} requestParameters Request parameters.
+     * @param {ServerKeysApiUpsertAllRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public upsertall(requestParameters: ServerKeysApiUpsertallRequest = {}, options?: RawAxiosRequestConfig) {
-        return ServerKeysApiFp(this.configuration).upsertall(requestParameters.guildID, requestParameters.APIDaneyRepositoriesEntitiesServerKeyRequester, options).then((request) => request(this.axios, this.basePath));
+    public upsertAll(requestParameters: ServerKeysApiUpsertAllRequest = {}, options?: RawAxiosRequestConfig) {
+        return ServerKeysApiFp(this.configuration).upsertAll(requestParameters.guildID, requestParameters.APIDaneyRepositoriesEntitiesServerKeyRequester, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

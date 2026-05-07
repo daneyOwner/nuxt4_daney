@@ -30,11 +30,11 @@ export const DiscordChannelApiAxiosParamCreator = function (configuration?: Conf
     return {
         /**
          * 
-         * @param {number} [guildID] 
+         * @param {string} [guildID] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getChannels: async (guildID?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getChannels: async (guildID?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v1.0/discordchannel/get-channels`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -77,11 +77,11 @@ export const DiscordChannelApiFp = function(configuration?: Configuration) {
     return {
         /**
          * 
-         * @param {number} [guildID] 
+         * @param {string} [guildID] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getChannels(guildID?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<APIDaneyModelsCommonSelectItem>>> {
+        async getChannels(guildID?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<APIDaneyModelsCommonSelectItem>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getChannels(guildID, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DiscordChannelApi.getChannels']?.[localVarOperationServerIndex]?.url;
@@ -112,7 +112,7 @@ export const DiscordChannelApiFactory = function (configuration?: Configuration,
  * Request parameters for getChannels operation in DiscordChannelApi.
  */
 export interface DiscordChannelApiGetChannelsRequest {
-    readonly guildID?: number
+    readonly guildID?: string
 }
 
 /**

@@ -9,10 +9,12 @@ Name | Type | Description | Notes
 **Name** | **string** |  | [optional] [default to undefined]
 **HelpText** | **string** |  | [optional] [default to undefined]
 **Type** | **number** |  | [optional] [default to undefined]
-**GuildID** | **number** |  | [optional] [default to undefined]
+**GuildID** | **string** |  | [optional] [default to undefined]
 **Value** | **any** |  | [optional] [default to undefined]
 **MaxLength** | **number** |  | [optional] [default to undefined]
 **PremiumMaxLength** | **number** |  | [optional] [default to undefined]
+**Amount** | **number** |  | [optional] [default to undefined]
+**Required** | **boolean** |  | [optional] [default to undefined]
 **PremiumFeature** | **boolean** |  | [optional] [default to undefined]
 
 ## Example
@@ -29,6 +31,8 @@ const instance: APIDaneyModelsServerKeysServerKeyModel = {
     Value,
     MaxLength,
     PremiumMaxLength,
+    Amount,
+    Required,
     PremiumFeature,
 };
 ```

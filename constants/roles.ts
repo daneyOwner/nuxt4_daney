@@ -7,4 +7,8 @@ export const ROLES = {
     ticketSupportRoleID: "51b29a5c-fda5-40af-8523-6bb682bd4abd",
     ticketSupport2RoleID: "a89fe7a0-f0fc-422f-b054-316a9f2cb2a0",
     ticketSupportHeadRoleID: "d939152d-a528-4cc9-b828-afffe1cb5d0c",
+    welcomeMessagePingRoles: "69ed2927-7e32-47f7-9fdd-7d36c2b86584",
+    dividerRoles: "69ed2927-7e32-47f7-9fdd-7d36c2b86584",
+
+    flashAndDashRoleID: "37be4006-8820-4b3e-8105-41272231e141",
 } as const;

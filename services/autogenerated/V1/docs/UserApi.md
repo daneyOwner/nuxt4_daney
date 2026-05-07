@@ -22,7 +22,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new UserApi(configuration);
 
-let userID: number; // (optional) (default to undefined)
+let userID: string; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.getSingle(
     userID
@@ -33,7 +33,7 @@ const { status, data } = await apiInstance.getSingle(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **userID** | [**number**] |  | (optional) defaults to undefined|
+| **userID** | [**string**] |  | (optional) defaults to undefined|
 
 
 ### Return type
@@ -75,7 +75,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new UserApi(configuration);
 
-let userID: number; // (optional) (default to undefined)
+let userID: string; // (optional) (default to undefined)
 let timezone: number; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.setTimeZone(
@@ -88,7 +88,7 @@ const { status, data } = await apiInstance.setTimeZone(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **userID** | [**number**] |  | (optional) defaults to undefined|
+| **userID** | [**string**] |  | (optional) defaults to undefined|
 | **timezone** | [**number**] |  | (optional) defaults to undefined|
 
 

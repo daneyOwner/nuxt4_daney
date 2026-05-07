@@ -19,10 +19,12 @@ export interface APIDaneyModelsServerKeysServerKeyModel {
     'Name'?: string | null;
     'HelpText'?: string | null;
     'Type'?: number;
-    'GuildID'?: number;
+    'GuildID'?: string;
     'Value'?: any | null;
     'MaxLength'?: number;
     'PremiumMaxLength'?: number;
+    'Amount'?: number;
+    'Required'?: boolean;
     'PremiumFeature'?: boolean;
 }
 

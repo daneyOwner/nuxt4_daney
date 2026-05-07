@@ -9,55 +9,57 @@
                     Save
                 </button>
             </template>
-            <da-panel-tab v-if="categories.length > 0" name="Verification Categories" id-field="categories">
+            <da-panel-tab v-if="categories.length > 0" name="Categories" id-field="categories">
                 <div class="grid grid-cols-2 gap-5">
                     <template v-for="category in categories">
                         <div class="flex-1 basis-1/2 min-w-[250px]">
                             <sim-select :title="category.Name" v-model="category.Value" :help-text="category.HelpText"
-                                        :options="categoriesOptions" />
+                                        :max="category.Amount" :required="category.Required"
+                                        :multiple="category?.Amount != null && category.Amount >= 2"
+                                        :options="categoriesOptions"/>
                         </div>
                     </template>
                 </div>
             </da-panel-tab>
-            <da-panel-tab v-if="channels.length > 0" name="Verification Channels" id-field="channels">
+            <da-panel-tab v-if="channels.length > 0" name="Channels" id-field="channels">
                 <div class="grid grid-cols-2 gap-5">
                     <template v-for="channel in channels">
                         <div>
                             <sim-select :title="channel.Name" v-model="channel.Value" :help-text="channel.HelpText"
-                                        :options="channelsOptions" />
+                                        :max="channel.Amount" :required="channel.Required"
+                                        :multiple="channel?.Amount != null && channel.Amount >= 2"
+                                        :options="channelsOptions"/>
                         </div>
                     </template>
                 </div>
             </da-panel-tab>
-            <da-panel-tab v-if="roles.length > 0" name="Verification Roles" id-field="roles">
+            <da-panel-tab v-if="roles.length > 0" name="Roles" id-field="roles">
                 <div class="grid grid-cols-2 gap-5">
                     <template v-for="role in roles">
                         <div>
                             <sim-select :title="role.Name" v-model="role.Value" :help-text="role.HelpText"
+                                        :max="role.Amount" :required="role.Required"
+                                        :multiple="role?.Amount != null && role.Amount >= 2"
                                         :options="rolesOptions"/>
                         </div>
                     </template>
                 </div>
             </da-panel-tab>
-            <da-panel-tab v-if="textParagraphs.length > 0 || texts.length > 0" name="Verification Texts"
+            <da-panel-tab v-if="textParagraphs.length > 0 || texts.length > 0" name="Texts"
                           id-field="texts" icon="fa-solid fa-server">
                 <div class="grid grid-cols-2 gap-5" v-if="textParagraphs || texts">
                     <template v-if="textParagraphs" v-for="textParagraph in textParagraphs">
-                        <div>
-                            <sim-textarea v-model="textParagraph.Value" :title="textParagraph.Name"
-                                          :max="textParagraph.PremiumFeature ? textParagraph.PremiumMaxLength : textParagraph.MaxLength"
-                                          :help-text="textParagraph.HelpText"
-                            />
-                        </div>
+                        <sim-textarea v-model="textParagraph.Value" :title="textParagraph.Name"
+                                      :max="textParagraph.PremiumFeature ? textParagraph.PremiumMaxLength : textParagraph.MaxLength"
+                                      :help-text="textParagraph.HelpText"
+                        />
                     </template>
 
                     <template v-if="texts" v-for="text in texts">
-                        <div>
-                            <sim-input v-model="text.Value" :title="text.Name"
-                                       :max="text.PremiumFeature ? text.PremiumMaxLength : text.MaxLength"
-                                       :help-text="text.HelpText"
-                            />
-                        </div>
+                        <sim-input v-model="text.Value" :title="text.Name"
+                                   :max="text.PremiumFeature ? text.PremiumMaxLength : text.MaxLength"
+                                   :help-text="text.HelpText"
+                        />
                     </template>
                 </div>
             </da-panel-tab>
@@ -69,7 +71,7 @@
                                 {{ boolean.Name }}
                                 <client-only>
                                     <u-tooltip arrow :popper="{ placement: 'top' }" class="inline-block!"
-                                               :text="boolean.HelpText">
+                                               :text="boolean.HelpText as string">
                                         <div>
                                             <font-awesome-icon icon="fa-solid fa-circle-question" fixed-width/>
                                         </div>
@@ -85,7 +87,7 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import {ref, onMounted} from "vue";
 
 import {useNuxtApp} from "nuxt/app";
@@ -95,8 +97,10 @@ import {DiscordChannelApi} from "~~/services/autogenerated/V1/api/discord-channe
 import {DiscordRoleApi} from "~~/services/autogenerated/V1/api/discord-role-api";
 import {ServerKeysBaseApi} from "~~/services/autogenerated/V1/api/server-keys-base-api";
 import {ServerKeysApi} from "~~/services/autogenerated/V1/api/server-keys-api";
-import DaPanel from "~/components/shared/da-panel/da-panel.vue";
-import DaPanelTab from "~/components/shared/da-panel/da-panel-tab.vue";
+import type {
+    APIDaneyModelsCommonSelectItem,
+    APIDaneyModelsServerKeysServerKeyModel
+} from "~~/services/autogenerated/V1/models";
 
 let props = defineProps({
     uids: {
@@ -104,7 +108,7 @@ let props = defineProps({
     }
 });
 
-const {$getSwaggerAxiosOptions, $constants, $toast} = useNuxtApp()
+const {$getSwaggerAxiosOptions, $constants} = useNuxtApp();
 
 let DiscordCategoryService = new DiscordCategoryApi($getSwaggerAxiosOptions());
 let DiscordChannelService = new DiscordChannelApi($getSwaggerAxiosOptions());
@@ -112,81 +116,88 @@ let DiscordRoleService = new DiscordRoleApi($getSwaggerAxiosOptions());
 let ServerKeysBaseService = new ServerKeysBaseApi($getSwaggerAxiosOptions());
 let ServerKeysService = new ServerKeysApi($getSwaggerAxiosOptions());
 
-let isLoading = ref(true);
+let isLoading = ref<Boolean>(true);
 
-let categoriesOptions = ref([]);
-let channelsOptions = ref([]);
-let rolesOptions = ref([]);
+let categoriesOptions = ref<APIDaneyModelsCommonSelectItem[]>([]);
+let channelsOptions = ref<APIDaneyModelsCommonSelectItem[]>([]);
+let rolesOptions = ref<APIDaneyModelsCommonSelectItem[]>([]);
 
-let serverKeys = ref([]);
-let categories = ref([]);
-let channels = ref([]);
-let texts = ref([]);
-let textParagraphs = ref([]);
-let roles = ref([]);
-
-let booleans = ref([]);
+let serverKeys = ref<APIDaneyModelsServerKeysServerKeyModel[]>([]);
+let categories = ref<APIDaneyModelsServerKeysServerKeyModel[]>([]);
+let channels = ref<APIDaneyModelsServerKeysServerKeyModel[]>([]);
+let texts = ref<APIDaneyModelsServerKeysServerKeyModel[]>([]);
+let textParagraphs = ref<APIDaneyModelsServerKeysServerKeyModel[]>([]);
+let roles = ref<APIDaneyModelsServerKeysServerKeyModel[]>([]);
+let booleans = ref<APIDaneyModelsServerKeysServerKeyModel[]>([]);
 
 let route = useRoute();
+const toast = useToast();
+
 async function getCategories() {
-    categoriesOptions = (await DiscordCategoryService.getCategories({
-        guildID: route.params.id,
+    categoriesOptions.value = (await DiscordCategoryService.getCategories({
+        guildID: route.params.id as string,
     })).data;
 }
 
 async function getChannels() {
-    channelsOptions = (await DiscordChannelService.getChannels({
-        guildID: route.params.id,
+    channelsOptions.value = (await DiscordChannelService.getChannels({
+        guildID: route.params.id as string,
     })).data;
 }
 
 async function getRoles() {
-    rolesOptions = (await DiscordRoleService.getRoles({
-        guildID: route.params.id,
+    rolesOptions.value = (await DiscordRoleService.getRoles({
+        guildID: route.params.id as string,
     })).data;
 }
 
 async function getServerKeys() {
-    serverKeys = (await ServerKeysBaseService.getAll({
+    serverKeys.value = (await ServerKeysBaseService.getAll({
         APIDaneyControllersServerKeyRequest: {
-            GuildID: route.params.id,
+            GuildID: route.params.id as string,
             Types: [$constants.types.channel, $constants.types.category, $constants.types.role,
                 $constants.types.text, $constants.types.textParagraph, $constants.types.boolean],
-            Uids: props.uids
+            Uids: props.uids as Array<string>
         },
     })).data;
-    for (let i = 0; i < serverKeys.length; i++) {
-        if (serverKeys[i].Type === $constants.types.category) categories.value.push(serverKeys[i]);
-        if (serverKeys[i].Type === $constants.types.channel) channels.value.push(serverKeys[i]);
-        if (serverKeys[i].Type === $constants.types.textParagraph) textParagraphs.value.push(serverKeys[i]);
-        if (serverKeys[i].Type === $constants.types.text) texts.value.push(serverKeys[i]);
-        if (serverKeys[i].Type === $constants.types.role) roles.value.push(serverKeys[i]);
-        if (serverKeys[i].Type === $constants.types.boolean) booleans.value.push(serverKeys[i]);
+
+    for (const serverKey of serverKeys.value) {
+
+    }
+    for (let i = 0; i < serverKeys.value.length; i++) {
+        let serverKey = serverKeys.value[i];
+        if (serverKey == null) continue;
+
+        if (serverKey.Type === $constants.types.category) categories.value.push(serverKey);
+        if (serverKey.Type === $constants.types.channel) channels.value.push(serverKey);
+        if (serverKey.Type === $constants.types.textParagraph) textParagraphs.value.push(serverKey);
+        if (serverKey.Type === $constants.types.text) texts.value.push(serverKey);
+        if (serverKey.Type === $constants.types.role) roles.value.push(serverKey);
+        if (serverKey.Type === $constants.types.boolean) booleans.value.push(serverKey);
     }
 
-    setTimeout(() => {
-        isLoading.value = false;
-    }, 2000);
+    isLoading.value = false;
 }
 
 onMounted(async () => {
-    let getCategoriesTask = ref(getCategories());
-    let getChannelsTask = ref(getChannels());
-    let getRolesTask = ref(getRoles());
-    let getServerKeysTask = ref(getServerKeys());
+    let getCategoriesTask = getCategories();
+    let getChannelsTask = getChannels();
+    let getRolesTask = getRoles();
+    let getServerKeysTask = getServerKeys();
 
     await Promise.all([getCategoriesTask, getChannelsTask, getRolesTask, getServerKeysTask]);
 });
 
 async function save() {
     try {
+        debugger
         let values = [
-            ...categories._rawValue,
-            ...channels._rawValue,
-            ...textParagraphs._rawValue,
-            ...texts._rawValue,
-            ...roles._rawValue,
-            ...booleans._rawValue
+            ...categories.value,
+            ...channels.value,
+            ...textParagraphs.value,
+            ...texts.value,
+            ...roles.value,
+            ...booleans.value
         ];
 
         values = values.map((item) => {
@@ -196,14 +207,23 @@ async function save() {
             }
         });
 
-        await ServerKeysService.upsertall({
-            guildID: route.params.id,
+        await ServerKeysService.upsertAll({
+            guildID: route.params.id as string,
             APIDaneyRepositoriesEntitiesServerKeyRequester: values,
         });
 
-        $toast({type: "success", text: "Settings saved successfully!", header: "Success"});
+        toast.add({
+            color: "success",
+            description: "Settings saved successfully!",
+            title: "Success"
+        });
     } catch (error) {
-        $toast({type: "error", text: "Failed to save settings. Please try again.", header: "Error"});
+        toast.add({
+            color: "error",
+            description: "Failed to save settings. Please try again.",
+            title: "Error"
+        });
+
         console.error("Save error:", error);
     }
 }

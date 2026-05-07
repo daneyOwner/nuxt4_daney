@@ -21,7 +21,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new DiscordCategoryApi(configuration);
 
-let guildID: number; // (optional) (default to undefined)
+let guildID: string; // (optional) (default to undefined)
 
 const { status, data } = await apiInstance.getCategories(
     guildID
@@ -32,7 +32,7 @@ const { status, data } = await apiInstance.getCategories(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **guildID** | [**number**] |  | (optional) defaults to undefined|
+| **guildID** | [**string**] |  | (optional) defaults to undefined|
 
 
 ### Return type

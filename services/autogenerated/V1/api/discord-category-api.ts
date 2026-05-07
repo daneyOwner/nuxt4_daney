@@ -30,11 +30,11 @@ export const DiscordCategoryApiAxiosParamCreator = function (configuration?: Con
     return {
         /**
          * 
-         * @param {number} [guildID] 
+         * @param {string} [guildID] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getCategories: async (guildID?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getCategories: async (guildID?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v1.0/discordcategory/get-categories`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -77,11 +77,11 @@ export const DiscordCategoryApiFp = function(configuration?: Configuration) {
     return {
         /**
          * 
-         * @param {number} [guildID] 
+         * @param {string} [guildID] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getCategories(guildID?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<APIDaneyModelsCommonSelectItem>>> {
+        async getCategories(guildID?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<APIDaneyModelsCommonSelectItem>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCategories(guildID, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DiscordCategoryApi.getCategories']?.[localVarOperationServerIndex]?.url;
@@ -112,7 +112,7 @@ export const DiscordCategoryApiFactory = function (configuration?: Configuration
  * Request parameters for getCategories operation in DiscordCategoryApi.
  */
 export interface DiscordCategoryApiGetCategoriesRequest {
-    readonly guildID?: number
+    readonly guildID?: string
 }
 
 /**

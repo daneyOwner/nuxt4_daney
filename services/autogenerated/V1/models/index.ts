@@ -4,6 +4,4 @@ export * from './apidaney-models-common-select-item';
 export * from './apidaney-models-server-keys-server-key-model';
 export * from './apidaney-repositories-entities-server-key';
 export * from './apidaney-repositories-entities-server-key-requester';
-export * from './apidaney-shared-models-paged-list-of-daney-data-access-entities-moderation-logging';
-export * from './daney-data-access-entities-moderation-logging';
 export * from './microsoft-asp-net-core-mvc-problem-details';

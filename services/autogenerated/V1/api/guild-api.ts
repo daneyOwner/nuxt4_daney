@@ -30,11 +30,11 @@ export const GuildApiAxiosParamCreator = function (configuration?: Configuration
     return {
         /**
          * 
-         * @param {number} [guildID] 
+         * @param {string} [guildID] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSingle: async (guildID?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSingle: async (guildID?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v1.0/guild/get-single`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -77,11 +77,11 @@ export const GuildApiFp = function(configuration?: Configuration) {
     return {
         /**
          * 
-         * @param {number} [guildID] 
+         * @param {string} [guildID] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSingle(guildID?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<APIDaneyModelsAuthGetTokenResponse>> {
+        async getSingle(guildID?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<APIDaneyModelsAuthGetTokenResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSingle(guildID, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['GuildApi.getSingle']?.[localVarOperationServerIndex]?.url;
@@ -112,7 +112,7 @@ export const GuildApiFactory = function (configuration?: Configuration, basePath
  * Request parameters for getSingle operation in GuildApi.
  */
 export interface GuildApiGetSingleRequest {
-    readonly guildID?: number
+    readonly guildID?: string
 }
 
 /**
