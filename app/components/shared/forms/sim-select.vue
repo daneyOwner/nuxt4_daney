@@ -90,7 +90,8 @@ export default {
             default: ''
         },
         options: {
-            default: () => []
+            default: () => [],
+            type: Array
         },
         disabled: {
             type: Boolean,

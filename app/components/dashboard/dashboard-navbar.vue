@@ -21,7 +21,7 @@
                     <span class="block w-6 h-0.5 bg-white"></span>
                 </button>
                 <nuxt-link to="/" class="flex">
-                    <img src="/images/daney.webp" loading="lazy" alt="daney icon" class="h-8 w-auto"/>
+                    <nuxt-img src="/images/daney.webp" loading="lazy" alt="daney icon" class="h-8 w-auto" />
                     <span class="ml-2 font-bold ms-2 float-end text-white text-[1.25rem]">{{$constants.main.botName}}</span>
                 </nuxt-link>
             </div>

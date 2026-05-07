@@ -902,6 +902,9 @@
           "text": {
             "type": "string",
             "nullable": true
+          },
+          "disabled": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false

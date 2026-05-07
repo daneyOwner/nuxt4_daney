@@ -142,7 +142,7 @@
             <nuxt-link to="/User" class="serverMenu__listItem user">
                 <div></div>
                 <div>
-                    <img v-if="user" class="img-fluid" :src="user.image" alt="User icon"/>
+                    <nuxt-img v-if="user" class="img-fluid" :src="user.image" alt="User icon"/>
                 </div>
             </nuxt-link>
         </u-tooltip>
@@ -158,7 +158,7 @@
                     <div></div>
                     <div>
                         <template v-if="getGuildIcon(guild)">
-                            <img class="img-fluid" :src="getGuildIcon(guild)" alt="Server icon"/>
+                            <nuxt-img class="img-fluid" :src="getGuildIcon(guild)" alt="Server icon"/>
                         </template>
                         <div v-else>
                             <span>{{ getGuildName(guild) }}</span>

@@ -8,7 +8,7 @@ export default defineNuxtConfig({
         icons: {
             solid: ['x', 'eraser', 'rotate-right', 'search', 'angles-left', 
                 'angles-right', 'angle-up', 'angle-left', 'angle-right', 'spinner', 'pen', 
-                'circle-question'],
+                'circle-question', 'plus'],
         }
     },
     

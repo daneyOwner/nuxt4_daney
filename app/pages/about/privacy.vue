@@ -48,7 +48,7 @@ ul > li {
             <strong>Questions or concerns?</strong> Reading this privacy notice will help you understand your privacy
             rights and choices.
             If you do not agree with our policies and practices, please do not use our Services.
-            If you still have any questions or concerns, please contact us at <img class="inline" src="/images/email.png" alt="email"/>
+            If you still have any questions or concerns, please contact us at <nuxt-img class="inline" src="/images/email.png" alt="email"/>
         </p>
         <br/>
         <h5>SUMMARY OF KEY POINTS</h5>
@@ -553,7 +553,7 @@ ul > li {
             <a href="https://www.aboutcookies.org/">https://www.aboutcookies.org/</a>.
         </p>
         <p>
-            If you have questions or comments about your privacy rights, you may email us at <img class="inline" src="/images/email.png" alt="email"/>
+            If you have questions or comments about your privacy rights, you may email us at <nuxt-img class="inline" src="/images/email.png" alt="email"/>
         </p>
         <h5 id="track">10. CONTROLS FOR DO-NOT-TRACK FEATURES</h5>
         <p>
@@ -849,7 +849,7 @@ ul > li {
             More information about our data collection and sharing practices can be found in this privacy notice.
         </p>
         <p>
-            You may contact us by email at <img class="inline" src="/images/email.png" alt="email"/>, or by referring to the contact details at the
+            You may contact us by email at <nuxt-img class="inline" src="/images/email.png" alt="email"/>, or by referring to the contact details at the
             bottom of this document.
         </p>
         <p>
@@ -956,7 +956,7 @@ ul > li {
         </p>
         <h5 id="contact">13. HOW CAN YOU CONTACT US ABOUT THIS NOTICE?</h5>
         <p>
-            If you have questions or comments about this notice, you may email us at <img class="inline" src="/images/email.png" alt="email"/>
+            If you have questions or comments about this notice, you may email us at <nuxt-img class="inline" src="/images/email.png" alt="email"/>
         </p>
         <h5 id="review">14. HOW CAN YOU REVIEW YOUR PROVIDED PERSONAL DATA?</h5>
         <p>
@@ -991,7 +991,7 @@ ul > li {
         
         <h6>Manual removal of data for servers</h6>
         <p>
-            Manual removal of the data can be requested through email at <img src="/images/email.png" class="inline" alt="email"/>.
+            Manual removal of the data can be requested through email at <nuxt-img src="/images/email.png" class="inline" alt="email"/>.
             For security reasons will we ask you to provide us with proof of ownership of the server,
             that you wish the data to be removed of.
             Only a server owner may request manual removal of data and requesting it will result in the bot being
@@ -1000,7 +1000,7 @@ ul > li {
         </p>
         <h6>Manual removal of data for users</h6>
         <p>
-            Manual removal of the data can be requested through email at <img src="/images/email.png" class="inline" alt="email"/>. Or be requested
+            Manual removal of the data can be requested through email at <nuxt-img src="/images/email.png" class="inline" alt="email"/>. Or be requested
             on our website (Not Ready Yet)<a
             :href="$constants.main.websiteHostName + '/account/data-request'">{{ $constants.main.websiteHostName }}/data-removal</a>.
             You have to proof that you are the owner of the account and provide your discord user id.

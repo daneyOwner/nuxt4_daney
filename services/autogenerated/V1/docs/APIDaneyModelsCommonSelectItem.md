@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** |  | [optional] [default to undefined]
 **text** | **string** |  | [optional] [default to undefined]
+**disabled** | **boolean** |  | [optional] [default to undefined]
 
 ## Example
 
@@ -16,6 +17,7 @@ import { APIDaneyModelsCommonSelectItem } from './api';
 const instance: APIDaneyModelsCommonSelectItem = {
     id,
     text,
+    disabled,
 };
 ```
 

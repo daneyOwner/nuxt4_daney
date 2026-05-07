@@ -161,9 +161,6 @@ async function getServerKeys() {
         },
     })).data;
 
-    for (const serverKey of serverKeys.value) {
-
-    }
     for (let i = 0; i < serverKeys.value.length; i++) {
         let serverKey = serverKeys.value[i];
         if (serverKey == null) continue;

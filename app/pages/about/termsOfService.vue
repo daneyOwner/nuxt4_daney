@@ -58,7 +58,7 @@ ul > li {
         </p>
         <h5>Contact</h5>
         <p>
-            People may get in contact through e-mail at <img class="inline" src="/images/email.png" alt="email"/><br />
+            People may get in contact through e-mail at <nuxt-img class="inline" src="/images/email.png" alt="email"/><br />
             Other ways of support may be provided but aren't guaranteed.
         </p>
     </div>

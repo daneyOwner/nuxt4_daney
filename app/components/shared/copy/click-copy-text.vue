@@ -4,6 +4,7 @@
 
 <script>
 import copyText from "./copyText";
+let { $toast } = useNuxtApp();
 
 export default {
 	name: "click-copy-text",
@@ -17,15 +18,10 @@ export default {
 			default: null
 		}
 	},
-	computed: {
-		getHref() {
-			return "javascript:copy('" + this.text + "')";
-		}
-	},
 	methods: {
 		copyText() {
 			copyText(this.text);
-			this.$toast({type: "info", text: `Copied: ${this.text}`, header: "Info"});
+			$toast({type: "info", text: `Copied: ${this.text}`, header: "Info"});
 		}
 	}
 };

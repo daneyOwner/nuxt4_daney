@@ -1,12 +1,13 @@
 <template>
     <div :id="idField" v-show="showTab">
-        <h4 class="mb-4" v-if="hasHeader">
+        <h4 class="pb-4" v-if="hasHeader">
             <client-only>
                 <font-awesome-icon class="me-1" v-if="icon" :icon="icon" fixed-width/>
             </client-only>
             <component v-if="iconComponent" :is="iconComponent"/>
             <span>{{ name }}</span>
         </h4>
+        <div class="clear-both"></div>
         <slot/>
     </div>
 </template>

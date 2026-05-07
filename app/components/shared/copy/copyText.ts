@@ -1,10 +1,11 @@
-function copyText(text) {
-    let input = document.createElement('input');
-    input.setAttribute('value', text);
-    document.body.appendChild(input);
-    input.select();
-    let result = document.execCommand('copy');
-    document.body.removeChild(input)
-    return result;
+function copyText(text: string) {
+    if (import.meta.client && navigator?.clipboard) {
+        return navigator.clipboard.writeText(text)
+            .then(() => true)
+            .catch(() => false);
+    }
+
+    return false;
 }
+
 export default copyText;

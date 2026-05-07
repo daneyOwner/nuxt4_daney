@@ -14,9 +14,8 @@
 
 
 
-export interface APIDaneyModelsCommonSelectItem {
-    'id'?: string | null;
-    'text'?: string | null;
-    'disabled'?: boolean;
+export interface MicrosoftAspNetCoreMvcRenderingSelectListGroup {
+    'Disabled'?: boolean;
+    'Name'?: string | null;
 }
 

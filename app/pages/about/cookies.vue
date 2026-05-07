@@ -89,7 +89,7 @@ p {
         <p>For more general information on cookies, please read <a href="https://www.cookiepolicygenerator.com/sample-cookies-policy/">the Cookies Policy article</a>.</p>
         <p>However if you are still looking for more information then you can contact us through one of our preferred contact methods:</p>
         <ul class="list-disc pl-8">
-            <li>Email: <img class="inline" src="/images/email.png" alt="email"/></li>
+            <li>Email: <nuxt-img class="inline" src="/images/email.png" alt="email"/></li>
         </ul>
     </div>
 </template>
