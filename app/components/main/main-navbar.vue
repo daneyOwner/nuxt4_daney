@@ -12,9 +12,8 @@
 </style>
 
 <template>
-    <nav class="bg-[#202225] fixed w-full py-2 top-0 z-[2000] text-white">
+    <nav class="bg-[#202225] fixed w-full py-2 top-0 z-2000 text-white">
         <div class="mx-auto flex items-center justify-between ms-4 me-4 h-[40px]">
-
             <div class="flex items-center">
                 <button @click="toggleMenu" class="hidden lg:hidden me-4">
                     <span class="block w-6 h-0.5 bg-white"></span>
@@ -47,7 +46,7 @@
 
 <script setup>
 const {$constants} = useNuxtApp();
-const {status, signOut, signIn} = useAuth();
+const {status, signIn} = useAuth();
 let authenticated = status.value;
 import {ref} from 'vue';
 

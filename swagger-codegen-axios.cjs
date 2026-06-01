@@ -28,8 +28,8 @@ const download = async ({url, path}) => {
 	await streamPipeline(response.body, createWriteStream(path));
 };
 
-var walk = function (dir, done) {
-	var results = [];
+let walk = function (dir, done) {
+	let results = [];
 	fs.readdir(dir, function (err, list) {
 		if (err) return done(err);
 		var i = 0;

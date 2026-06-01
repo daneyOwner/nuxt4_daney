@@ -3,6 +3,7 @@ export function useAccess() {
 
     function getUserPermissions(): number[] {
         const [permissionDateStorage] = useLocalStorage('userPermissions');
+        if (!permissionDateStorage) return [];
         const permissions = permissionDateStorage.value;
         return permissions ? permissionDateStorage.value : [];
     }

@@ -10,12 +10,7 @@
                       ref="table" :has-reset-filters="false"
                       :limit="initialPageLimit" :offset="initialPageOffset" :sort="initialSortField"
                       :order="initialSortDirection" :initial-search="initialSearch">
-                <da-table-column field="UserName" :component="daTableSlotFormatter"
-                                 field-wrapper-class="wrapper" name="User" :sortable="true">
-                    <template slot-scope="{row, field}" v-if="row">
-                        test
-                    </template>
-                </da-table-column>
+                
             </da-table>
         </div>
         <div class="flex-none w-[500px]">
